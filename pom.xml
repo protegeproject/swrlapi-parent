@@ -36,7 +36,7 @@
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
     <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
-    <!-- Version 3.0.0 and 3.0.1 of the Maven Bundle plugin does not embed depenedencies properly -->
+    <!-- Version 3.0.0 and 3.0.1 of the Maven Bundle Plugin does not embed depenedencies properly -->
     <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
     <maven.source.plugin.version>3.0.0</maven.source.plugin.version>
     <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
@@ -44,6 +44,7 @@
     <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
     <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
     <maven.scm.gitexe.version>1.9.4</maven.scm.gitexe.version>
+    <maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
     
     <java.version>1.8</java.version>
 
@@ -358,6 +359,12 @@
               <description>${project.version}</description>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>${maven.failsafe.plugin.version}</version>
           </plugin>
 
         </plugins>
