@@ -38,13 +38,15 @@
     <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
     <!-- Version 3.0.0 and 3.0.1 of the Maven Bundle Plugin does not embed depenedencies properly -->
     <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
-    <maven.source.plugin.version>3.0.0</maven.source.plugin.version>
+    <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
     <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
+    <maven.source.plugin.version>3.0.0</maven.source.plugin.version>
     <maven.nexus-staging.plugin.version>1.6.7</maven.nexus-staging.plugin.version>
     <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
     <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
     <maven.scm.gitexe.version>1.9.4</maven.scm.gitexe.version>
     <maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
+    <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
     
     <java.version>1.8</java.version>
 
@@ -288,6 +290,18 @@
           </configuration>
         </plugin>
 
+        <plugin>
+	  <groupId>org.apache.maven.plugins</groupId>
+	  <artifactId>maven-deploy-plugin</artifactId>
+	  <version>${maven.deploy.plugin.version}</version>
+        </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>${maven.failsafe.plugin.version}</version>
+          </plugin>
+
 
       </plugins>
     </pluginManagement>
@@ -361,11 +375,6 @@
             </configuration>
           </plugin>
 
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <version>${maven.failsafe.plugin.version}</version>
-          </plugin>
 
         </plugins>
 
