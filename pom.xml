@@ -11,7 +11,7 @@
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrlapi-parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0-beta-25-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>SWRLAPI Parent POM</name>
@@ -19,6 +19,8 @@
 
   <properties>
 
+    <swrlapi.version>${project.version}</swrlapi.version>
+    <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
     <protege.version>5.0.0-beta-23</protege.version>
     <owlapi.version>4.2.1</owlapi.version>
     <drools.version>6.3.0.Final</drools.version>
@@ -31,7 +33,7 @@
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
     <junit.version>4.12</junit.version>
     <org.hamcrest.core.version>1.3</org.hamcrest.core.version>
-    <slf4j.version>1.7.18</slf4j.version>
+    <slf4j.version>1.7.19</slf4j.version>
     
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
@@ -47,7 +49,8 @@
     <maven.scm.gitexe.version>1.9.4</maven.scm.gitexe.version>
     <maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
     <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
-          <exec.maven.plugin.version>1.4.0</exec.maven.plugin.version>
+    <maven.versions.plugin.version>2.1</maven.versions.plugin.version>
+    <exec.maven.plugin.version>1.4.0</exec.maven.plugin.version>
     
     <java.version>1.8</java.version>
 
@@ -96,7 +99,6 @@
     <url>https://github.com/protegeproject/swrlapi/issues</url>
   </issueManagement>
 
-
   <dependencyManagement>
     <dependencies>
 
@@ -143,7 +145,6 @@
       </dependency>
 
       <!-- End of Drools dependencies -->
-
 
       <!-- OSGi Bundle for Axis 1.4 -->
       <dependency>
@@ -320,6 +321,12 @@
 	  <artifactId>exec-maven-plugin</artifactId>
           <version>${exec.maven.plugin.version}</version>
         </plugin>
+
+<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+      </plugin>
+
 
       </plugins>
     </pluginManagement>
