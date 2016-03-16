@@ -310,6 +310,12 @@
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${maven.install.plugin.version}</version>
+        </plugin>
+
+        <plugin>
   	  <groupId>org.codehaus.mojo</groupId>
 	  <artifactId>exec-maven-plugin</artifactId>
           <version>${exec.maven.plugin.version}</version>
@@ -386,7 +392,6 @@
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
           </plugin>
-
 
         </plugins>
 
