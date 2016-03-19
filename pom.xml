@@ -20,7 +20,7 @@
 
     <swrlapi.version>${project.version}</swrlapi.version>
     <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
-    <protege.version>5.0.0-beta-23</protege.version>
+    <protege.version>5.0.0-beta-24</protege.version>
     <owlapi.version>4.2.1</owlapi.version>
     <drools.version>6.3.0.Final</drools.version>
     <jep.version>2.4.2</jep.version>
