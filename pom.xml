@@ -28,6 +28,7 @@
     <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
     <!-- Version 19.0 seems to cause conflicts in Protege plugin -->
     <com.google.guava.version>18.0</com.google.guava.version>
+    <com.google.findbugs.version>2.0.1</com.google.findbugs.version>
 
     <checker.framework.version>1.9.11</checker.framework.version>
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
@@ -163,7 +164,7 @@
       <dependency>
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>jsr305</artifactId>
-        <version>2.0.1</version>
+        <version>${com.google.findbugs.version}</version>
       </dependency>
 
       <dependency>
