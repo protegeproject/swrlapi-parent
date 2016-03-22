@@ -1,0 +1,17 @@
+language: java
+jdk:
+- oraclejdk8
+branches:
+  only:
+  - master
+notifications:
+  email:
+    recipients:
+    - martin.oconnor@stanford.edu
+    on_success: never
+    on_failure: always
+script: '[ ${TRAVIS_PULL_REQUEST} = ''false'' ] && mvn clean deploy --settings .m2/travis-settings.xml'
+env:
+  global:
+  - secure: XntGVj64+gEAwx1qokP/d/YLI02AJW43no4C/WzhpWNZancWbkVCxKcYWT83F7ZggwNhzIdIEYf79k3zOHBfJu9go4kizvgd0+3ju5jNF1wtwLnWIoE8XnldWoy1/je8BKgyOlo8vqX0cDFuBGg7aVg1JenW8cRAFNO9FpgedrtI1gEUWR5IAAjmx2d1hbVACVvKCRMa2nP4AYVNmLeM6HCN4KW5pNGeU+r68cZfodXDsnuejSIxZrbmUGC0jtr2pTz6N53eT7sYuSEYRqt+WZ3i809QBIEwm6GIZFn0NmMN0vTBeDyiYPbOtZ5tVNuWJJGVTUO35n/hKtYi397W58ApxkVXx4+f0c6xxEZhDHLtOcUsxfkisTIbbQ6xvcYb5vOKEXthcePt9CtTNuU6iRdVy1Mr0HT8Uh9WV54YaWL6u4VU1q6ehnZSZVnMvvmvRiOGnUjgb6Udw+vRmk/zdOKtzJBTVUWU4ikO8oXG0NS9qN4CvXzbnT+D4Wu3UgIIM25/qEbG5j7O9C1ffLZTiUVahsghQxNv3s3xgYuD0/sFk2dMG2xZJvGMGRfqpphWKz7KMthogXnRNgfcXLJvWcEcM8Uf8/PRtw0o4tgnOgEgfIlVXSid/lam9ewCqmhAmgAh3/i5oAh4VJBLBi6zTykcfmkprjRXnlr6MC1dhIw=
+  - secure: 40MUYmUZuA5GsZj1LLGarsxQpfZt7CTzXpx0ycPB17XWcA/JOGO4CJVc8C7N8MRk+MafYjnoS3lYckXv4k9rmEXLWp1MoLW3rpFOlCjDeNjC9sZcqgThKSXMDRBoiAZr/LPpPMHKT2q+BCqOjUK/oM9kfF7qEUCl0DtxHEVYYMC0Aw/eFAqGvJc+KrYJMSdFAfzCNmcBLK3Wak/xO6+MQt7fOCLTVKe8IOBoR8JIyTvIiWhwBL2A4uEiKQ/znRZFkvtPuU99Zlcnbtvy8RAscLLY6/8+WYbMaPiLu8O3xrKCowia8AJEicgEY879401X56GiyKdllBv7W69wUrh2aiSiINyohptTrrjXDigJ9B3fE8aLY/noOjgqV429TMJXocGv4CFT+OXv1Cd1tZUOPJbZ427Vkv+gHt6Toy/HE7svbzd/ldFxvDmQ+/MZjzdNccp53WupfN32ooxsUre8JO8LfdcVvjf3nQ7wO/ChAxxnaXkmEHMPf5AEI9TCWOqOAz5UsqY2c8ZTnn2ves12pKs3b0CwDE1sLRFpPVOBwNsLLwZ6hQaNYSXTkMFw93Sce4sQ3axk9q3HwadqKLPUDB9thV0/N/eLGvD3vz5xz0GYrb8IdSl1CqwJTg5mWx152q5qVu33SA5+bzrnecdiOuKhYlRtNsSyt5MjaAyllhg=
