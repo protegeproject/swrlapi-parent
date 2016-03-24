@@ -4,17 +4,12 @@
                               http://maven.apache.org/xsd/settings-1.0.0.xsd">
   <servers>
     <server>
-      <id>sonatype-nexus-snapshots</id>
+      <id>bmir-nexus-snapshots</id>
       <username>${env.CI_DEPLOY_USERNAME}</username>
       <password>${env.CI_DEPLOY_PASSWORD}</password>
     </server>
     <server>
-      <id>sonatype-nexus-staging</id>
-      <username>${env.CI_DEPLOY_USERNAME}</username>
-      <password>${env.CI_DEPLOY_PASSWORD}</password>
-    </server>
-    <server>
-      <id>ossrh</id>
+      <id>bmir-nexus-staging</id>
       <username>${env.CI_DEPLOY_USERNAME}</username>
       <password>${env.CI_DEPLOY_PASSWORD}</password>
     </server>
