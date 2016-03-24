@@ -79,8 +79,8 @@
   <!-- SWRLAPI libraries are hosted on Sonatype OSSRH (OSS Repository Hosting Service). -->
   <distributionManagement>
     <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>bmir-nexus-snapshots</id>
+      <url>https://nexus.bmir.stanford.edu/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
