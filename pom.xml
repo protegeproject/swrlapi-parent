@@ -404,6 +404,7 @@
               <nexusUrl>https://nexus.bmir.stanford.edu/</nexusUrl>
               <description>${project.version}</description>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <skipStaging>true</skipStaging> <!-- temporary -->
             </configuration>
           </plugin>
 
