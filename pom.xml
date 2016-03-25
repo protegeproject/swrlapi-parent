@@ -83,7 +83,7 @@
     </snapshotRepository>
     <repository>
       <id>bmir-nexus-release</id>
-      <url>https://nexus.bmir.stanford.edu/service/local/staging/deploy/maven2/</url>
+      <url>https://nexus.bmir.stanford.edu/content/repositories/releases</url>
     </repository>
   </distributionManagement>
 
