@@ -82,7 +82,7 @@
       <url>https://nexus.bmir.stanford.edu/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>bmir-nexus-release</id>
+      <id>bmir-nexus-releases</id>
       <url>https://nexus.bmir.stanford.edu/content/repositories/releases</url>
     </repository>
   </distributionManagement>
@@ -400,7 +400,7 @@
             <version>${maven.nexus-staging.plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>bmir-nexus-release</serverId>
+              <serverId>bmir-nexus-releases</serverId>
               <nexusUrl>https://nexus.bmir.stanford.edu/</nexusUrl>
               <description>${project.version}</description>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
