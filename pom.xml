@@ -77,6 +77,7 @@
   </licenses>  
 
   <distributionManagement>
+
     <snapshotRepository>
       <id>bmir-nexus-snapshots</id>
       <url>https://nexus.bmir.stanford.edu/content/repositories/snapshots</url>
@@ -85,6 +86,7 @@
       <id>bmir-nexus-releases</id>
       <url>https://nexus.bmir.stanford.edu/content/repositories/releases</url>
     </repository>
+
   </distributionManagement>
 
   <scm>
@@ -341,10 +343,24 @@
 
   <profiles>
     <profile>
-      <id>release</id>
+      <id>maven-central-release</id>
       <activation>
         <activeByDefault>false</activeByDefault>
       </activation>
+
+      <distributionManagement>
+
+        <snapshotRepository>
+          <id>central-nexus-snapshots</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+          <id>central-nexus-releases</id>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+
+      </distributionManagement>
+
       <build>
         <plugins>
           <plugin>
@@ -400,11 +416,10 @@
             <version>${maven.nexus-staging.plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>bmir-nexus-releases</serverId>
-              <nexusUrl>https://nexus.bmir.stanford.edu/</nexusUrl>
+              <serverId>central-nexus-releases</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
               <description>${project.version}</description>
               <autoReleaseAfterClose>true</autoReleaseAfterClose>
-              <skipStaging>true</skipStaging> <!-- temporary -->
             </configuration>
           </plugin>
 
