@@ -4,7 +4,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/edu.stanford.swrl/swrlapi-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/edu.stanford.swrl/swrlapi-parent)
 
 This project contains a Maven POM for [SWRLAPI](https://github.com/protegeproject/swrlapi/wiki)-related components. 
-It contains version and configuration that is used by all SWRLAPI projects.
+It contains version and configuration information that is used by all SWRLAPI projects.
 An associated [SWRLAPI Build Project](https://github.com/protegeproject/swrlapi-project.git) uses this POM
 when building all SWRLAPI components.
 
