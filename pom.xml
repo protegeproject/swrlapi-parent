@@ -30,11 +30,11 @@
     <com.google.guava.version>18.0</com.google.guava.version>
     <com.google.findbugs.version>3.0.1</com.google.findbugs.version>
 
-    <checker.framework.version>1.9.12</checker.framework.version>
+    <checker.framework.version>1.9.13</checker.framework.version>
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
     <junit.version>4.12</junit.version>
     <org.hamcrest.core.version>1.3</org.hamcrest.core.version>
-    <slf4j.version>1.7.20</slf4j.version>
+    <slf4j.version>1.7.21</slf4j.version>
     
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <maven.jar.plugin.version>2.6</maven.jar.plugin.version>
