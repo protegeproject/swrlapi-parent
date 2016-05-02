@@ -76,17 +76,16 @@
     </license>
   </licenses>  
 
+  <!-- SWRLAPI libraries are hosted on Sonatype OSSRH (OSS Repository Hosting Service). -->
   <distributionManagement>
-
     <snapshotRepository>
-      <id>bmir-nexus-snapshots</id>
-      <url>https://nexus.bmir.stanford.edu/content/repositories/snapshots</url>
+      <id>oss-nexus-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>bmir-nexus-releases</id>
-      <url>https://nexus.bmir.stanford.edu/content/repositories/releases</url>
+      <id>oss-nexus-staging</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
-
   </distributionManagement>
 
   <scm>
