@@ -79,11 +79,11 @@
   <!-- SWRLAPI libraries are hosted on Sonatype OSSRH (OSS Repository Hosting Service). -->
   <distributionManagement>
     <snapshotRepository>
-      <id>oss-nexus-snapshots</id>
+      <id>central-nexus-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>oss-nexus-staging</id>
+      <id>central-nexus-staging</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
