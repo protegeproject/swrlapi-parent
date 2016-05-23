@@ -10,7 +10,7 @@
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrlapi-parent</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <packaging>pom</packaging>
 
   <name>SWRLAPI Parent POM</name>
@@ -30,7 +30,7 @@
     <com.google.guava.version>18.0</com.google.guava.version>
     <com.google.findbugs.version>3.0.1</com.google.findbugs.version>
 
-    <checker.framework.version>1.9.13</checker.framework.version>
+    <checker.framework.version>2.0.0</checker.framework.version>
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
     <junit.version>4.12</junit.version>
     <org.hamcrest.core.version>1.3</org.hamcrest.core.version>
@@ -51,7 +51,7 @@
     <maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
     <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
     <maven.versions.plugin.version>2.1</maven.versions.plugin.version>
-    <exec.maven.plugin.version>1.4.0</exec.maven.plugin.version>
+    <exec.maven.plugin.version>1.5.0</exec.maven.plugin.version>
     
     <java.version>1.8</java.version>
 
@@ -79,11 +79,11 @@
   <!-- SWRLAPI libraries are hosted on Sonatype OSSRH (OSS Repository Hosting Service). -->
   <distributionManagement>
     <snapshotRepository>
-      <id>oss-nexus-snapshots</id>
+      <id>central-nexus-snapshots</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>oss-nexus-staging</id>
+      <id>central-nexus-staging</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
@@ -92,7 +92,7 @@
     <connection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</developerConnection>
     <url>https://github.com/protegeproject/swrlapi-parent</url>
-    <tag>release-1.0.4</tag>
+    <tag>release-1.0.5</tag>
   </scm>
 
   <issueManagement>
