@@ -29,8 +29,6 @@
     <!-- Version 19.0 seems to cause conflicts in Protege plugin -->
     <com.google.guava.version>18.0</com.google.guava.version>
     <com.google.findbugs.version>3.0.1</com.google.findbugs.version>
-
-    <!-- Version 2.0.0 of the Checker Framework causes OSGi issues in Protege plugin -->
     <checker.framework.version>2.1.3</checker.framework.version>
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
     <junit.version>4.12</junit.version>
@@ -40,8 +38,7 @@
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
     <maven.dependency.plugin.version>2.10</maven.dependency.plugin.version>
-    <!-- Version 3.0.0 and 3.0.1 of the Maven Bundle Plugin does not embed depenedencies properly -->
-    <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
+    <maven.bundle.plugin.version>3.0.2</maven.bundle.plugin.version>
     <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
     <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
     <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
