@@ -308,6 +308,15 @@
               </manifest>
             </archive>
           </configuration>
+          <dependencies>
+          <!-- Needed to resolve a Java 9 compatibility bug -->
+          <!-- See: https://stackoverflow.com/questions/36583118/is-maven-ready-for-jdk9/36605759#36605759 -->
+           <dependency>
+             <groupId>org.codehaus.plexus</groupId>
+             <artifactId>plexus-archiver</artifactId>
+             <version>2.4.4</version>
+           </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
