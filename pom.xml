@@ -26,9 +26,9 @@
     <jep.version>2.4.2</jep.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
     <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
-    <!-- Version 19.0+ causes OSGi resolution in SWRLTab plugin -->
+    <!-- Version 19.0+ causes OSGi resolution in the SWRLTab plugin -->
     <com.google.guava.version>18.0</com.google.guava.version>
-    <!-- Version 2.0.0 of the Checker Framework causes OSGi issues in Protege plugin -->
+    <!-- Version 2.0.0+ of the Checker Framework causes OSGi issues in the SWRLTab plugin -->
     <checker.framework.version>1.9.13</checker.framework.version>
     <com.google.findbugs.version>3.0.2</com.google.findbugs.version>
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
