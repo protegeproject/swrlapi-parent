@@ -25,7 +25,6 @@
     <drools.version>6.5.0.Final</drools.version>
     <jep.version>2.4.2</jep.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
-    <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
     <!-- Version 19.0+ causes OSGi resolution in the SWRLTab plugin -->
     <com.google.guava.version>18.0</com.google.guava.version>
     <!-- Version 2.0.0+ of the Checker Framework causes OSGi issues in the SWRLTab plugin -->
@@ -40,7 +39,7 @@
     <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
     <maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
     <!-- Version 3.0.0 and 3.0.1 of the Maven Bundle Plugin does not embed depenedencies properly -->
-    <maven.bundle.plugin.version>2.5.4</maven.bundle.plugin.version>
+    <maven.bundle.plugin.version>3.5.0</maven.bundle.plugin.version>
     <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
     <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
     <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
@@ -147,21 +146,45 @@
         <version>${drools.version}</version>
       </dependency>
 
+<dependency>
+    <groupId>org.kie</groupId>
+    <artifactId>kie-api</artifactId>
+        <version>${drools.version}</version>
+</dependency>
+
+<dependency>
+    <groupId>org.kie</groupId>
+    <artifactId>kie-internal</artifactId>
+        <version>${drools.version}</version>
+</dependency>
+
+
       <!-- End of Drools dependencies -->
 
-      <!-- OSGi Bundle for Axis 1.4 -->
       <dependency>
-        <groupId>org.apache.geronimo.bundles</groupId>
+        <groupId>org.apache.axis</groupId>
         <artifactId>axis</artifactId>
-        <version>${axis.osgi.version}</version>
+        <version>1.4</version>
       </dependency>
 
-      <!-- OSGi Bundle for Apache Commons Discovery 0.4  -->
       <dependency>
-        <groupId>org.apache.geronimo.bundles</groupId>
+        <groupId>commons-discovery</groupId>
         <artifactId>commons-discovery</artifactId>
-        <version>${commons.discovery.osgi.version}</version>
+        <version>0.5</version>
       </dependency>
+
+<dependency>
+    <groupId>org.antlr</groupId>
+    <artifactId>antlr-runtime</artifactId>
+    <version>3.5.2</version>
+</dependency>
+
+
+<dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.9</version>
+</dependency>
 
       <dependency>
         <groupId>com.google.code.findbugs</groupId>
