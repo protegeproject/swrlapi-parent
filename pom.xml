@@ -10,7 +10,7 @@
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrlapi-parent</artifactId>
-  <version>2.0.6-SNAPSHOT</version>
+  <version>2.0.5</version>
   <packaging>pom</packaging>
 
   <name>SWRLAPI Parent POM</name>
@@ -94,7 +94,7 @@
     <connection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</developerConnection>
     <url>https://github.com/protegeproject/swrlapi-parent</url>
-    <tag>release-2.0.3</tag>
+    <tag>release-2.0.5</tag>
   </scm>
 
   <issueManagement>
