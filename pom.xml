@@ -94,7 +94,7 @@
     <connection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</developerConnection>
     <url>https://github.com/protegeproject/swrlapi-parent</url>
-    <tag>release-2.0.5</tag>
+    <tag>release-2.0.6</tag>
   </scm>
 
   <issueManagement>
