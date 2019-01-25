@@ -22,11 +22,9 @@
     <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
     <protege.version>5.2.0</protege.version>
     <owlapi.version>4.5.8</owlapi.version>
+
     <jep.version>2.4.2</jep.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
-    <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
-    <commons.codec.version>1.9</commons.codec.version>
-    <jaxb.api.version>2.1</jaxb.api.version>
 
     <!-- Drools dependencies -->
     <drools.version>6.5.0.Final</drools.version>
@@ -34,7 +32,10 @@
     <ecj.version>4.6.1</ecj.version>
     <equinox.registry.version>3.5.101</equinox.registry.version>
     <antlr.runtime.version>3.5.2</antlr.runtime.version>
+    <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
+    <commons.codec.version>1.9</commons.codec.version>
 
+    <jaxb.api.version>2.1</jaxb.api.version>
     <!-- Version 19.0+ may cause OSGi resolution issues in the SWRLTab plugin. -->
     <com.google.guava.version>18.0</com.google.guava.version>
     <!-- Version 2.0.0+ may cause OSGi issues in the SWRLTab plugin. -->
