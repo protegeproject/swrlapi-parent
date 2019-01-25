@@ -270,8 +270,6 @@
   </dependencyManagement>
 
   <build>
-    <sourceDirectory>src/main/java</sourceDirectory>
-    <testSourceDirectory>src/test/java</testSourceDirectory>
 
     <pluginManagement>
       <plugins>
@@ -371,6 +369,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
+          <version>${maven.versions.plugin.version}</version>
         </plugin>
 
 
