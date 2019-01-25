@@ -21,15 +21,15 @@
     <swrlapi.version>${project.version}</swrlapi.version>
     <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
     <protege.version>5.2.0</protege.version>
-    <owlapi.version>4.2.8</owlapi.version>
-    <drools.version>6.5.0.Final</drools.version>
+    <owlapi.version>4.5.8</owlapi.version>
     <jep.version>2.4.2</jep.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
     <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
     <commons.codec.version>1.9</commons.codec.version>
     <jaxb.api.version>2.1</jaxb.api.version>
 
-    <!-- These versions are dependent on the versions used by Drools (currently 6.5.0.Final) -->
+    <!-- Drools dependencies -->
+    <drools.version>6.5.0.Final</drools.version>
     <mvel2.version>2.4.0.Final</mvel2.version>
     <ecj.version>4.6.1</ecj.version>
     <equinox.registry.version>3.5.101</equinox.registry.version>
