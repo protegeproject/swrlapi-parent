@@ -23,8 +23,9 @@
     <owlapi.version>4.5.9</owlapi.version>
     <protege.version>5.5.0</protege.version>
 
-    <jep.version>2.4.2</jep.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
+    <jep.version>2.4.2</jep.version>
+    <big.math.version>2.3.0</big.math.version>
 
     <!-- Drools dependencies -->
     <drools.version>7.0.0.Final</drools.version>
@@ -134,6 +135,12 @@
         <groupId>org.scijava</groupId>
         <artifactId>jep</artifactId>
         <version>${jep.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.obermuhlner</groupId>
+        <artifactId>big-math</artifactId>
+        <version>${big.math.version}</version>
       </dependency>
 
       <!-- Protege dependencies -->
