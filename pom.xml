@@ -20,8 +20,8 @@
 
     <swrlapi.version>${project.version}</swrlapi.version>
     <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
-    <protege.version>5.5.0</protege.version>
     <owlapi.version>4.5.9</owlapi.version>
+    <protege.version>5.5.0</protege.version>
 
     <jep.version>2.4.2</jep.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
@@ -34,15 +34,12 @@
     <antlr.runtime.version>3.5.2</antlr.runtime.version>
     <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
     <commons.codec.version>1.9</commons.codec.version>
-
     <jaxb.api.version>2.1</jaxb.api.version>
-    <!-- Version 19.0+ may cause OSGi resolution issues in the SWRLTab plugin. -->
-    <com.google.guava.version>18.0</com.google.guava.version>
-    <!-- Version 2.0.0+ may cause OSGi issues in the SWRLTab plugin. -->
+    <cdi.api.version>1.1</cdi.api.version>
+      
     <checker.framework.version>1.9.13</checker.framework.version>
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
 
-    <com.google.findbugs.version>3.0.2</com.google.findbugs.version>
     <junit.version>4.12</junit.version>
     <org.hamcrest.core.version>1.3</org.hamcrest.core.version>
     <slf4j.version>1.7.25</slf4j.version>
@@ -127,7 +124,19 @@
         <version>${owlapi.version}</version>
       </dependency>
 
-      <!-- Start of Protege dependencies -->
+      <dependency>
+        <groupId>org.apache.geronimo.bundles</groupId>
+        <artifactId>axis</artifactId>
+        <version>${axis.osgi.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.scijava</groupId>
+        <artifactId>jep</artifactId>
+        <version>${jep.version}</version>
+      </dependency>
+
+      <!-- Protege dependencies -->
 
       <dependency>
         <groupId>edu.stanford.protege</groupId>
@@ -147,33 +156,7 @@
         <version>${protege.version}</version>
       </dependency>
 
-      <!-- End of Protege dependencies -->
-
-      <!-- OSGi Bundle for Axis 1.4 -->
-      <dependency>
-        <groupId>org.apache.geronimo.bundles</groupId>
-        <artifactId>axis</artifactId>
-        <version>${axis.osgi.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>javax.xml.bind</groupId>
-        <artifactId>jaxb-api</artifactId>
-        <version>${jaxb.api.version}</version>
-      </dependency>
-
-      <!-- OSGi Bundle for Apache Commons Discovery 0.4  -->
-      <dependency>
-        <groupId>org.apache.geronimo.bundles</groupId>
-        <artifactId>commons-discovery</artifactId>
-        <version>${commons.discovery.osgi.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>${commons.codec.version}</version>
-      </dependency>
+      <!-- Drools dependencies -->
 
       <dependency>
         <groupId>org.antlr</groupId>
@@ -200,24 +183,30 @@
       </dependency>
 
       <dependency>
-        <groupId>com.google.code.findbugs</groupId>
-        <artifactId>jsr305</artifactId>
-        <version>${com.google.findbugs.version}</version>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>${commons.codec.version}</version>
       </dependency>
 
       <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>${com.google.guava.version}</version>
-      </dependency>
-      
-      <dependency>
-        <groupId>org.scijava</groupId>
-        <artifactId>jep</artifactId>
-        <version>${jep.version}</version>
+        <groupId>org.apache.geronimo.bundles</groupId>
+        <artifactId>commons-discovery</artifactId>
+        <version>${commons.discovery.osgi.version}</version>
       </dependency>
 
-      <!-- Start of Checker Framework Dependencies -->
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>${jaxb.api.version}</version>
+      </dependency>      
+
+      <dependency>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <version>${cdi.api.version}</version>
+    </dependency>
+
+      <!-- Checker dependencies -->
       
       <dependency>
         <groupId>org.checkerframework</groupId>
@@ -237,13 +226,12 @@
         <version>${checker.framework.version}</version>
       </dependency>
 
-      <!-- End of Checker Framework Dependencies -->
+      <!-- Test dependencies -->
 
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
-        <scope>test</scope>
       </dependency>
 
       <dependency>
