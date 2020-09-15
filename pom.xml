@@ -20,7 +20,7 @@
 
     <swrlapi.version>${project.version}</swrlapi.version>
     <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
-    <owlapi.version>4.5.9</owlapi.version>
+    <owlapi.version>4.5.17</owlapi.version>
     <protege.version>5.5.0</protege.version>
 
     <axis.osgi.version>1.4_2</axis.osgi.version>
