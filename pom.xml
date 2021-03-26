@@ -28,7 +28,7 @@
     <big.math.version>2.3.0</big.math.version>
 
     <!-- Drools dependencies -->
-    <drools.version>7.0.0.Final</drools.version>
+    <drools.version>7.51.0.Final</drools.version>
     <mvel2.version>2.4.0.Final</mvel2.version>
     <ecj.version>4.6.1</ecj.version>
     <equinox.registry.version>3.5.101</equinox.registry.version>
