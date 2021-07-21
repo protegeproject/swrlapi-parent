@@ -45,14 +45,11 @@
 
     <maven.enforcer.plugin.version>3.0.0-M3</maven.enforcer.plugin.version>
     <maven.site.plugin.version>3.9.1</maven.site.plugin.version>
-    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-    <maven.jar.plugin.version>3.1.1</maven.jar.plugin.version>
-    <maven.dependency.plugin.version>3.1.1</maven.dependency.plugin.version>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
+    <maven.dependency.plugin.version>3.2.0</maven.dependency.plugin.version>
     <maven.bundle.plugin.version>5.1.2</maven.bundle.plugin.version>
     <maven.install.plugin.version>3.0.0-M1</maven.install.plugin.version>
-    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-    <maven.nexus-staging.plugin.version>1.6.8</maven.nexus-staging.plugin.version>
-    <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
     <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
     <maven.javadoc.plugin.version>3.3.0</maven.javadoc.plugin.version>
     <maven.scm-api.plugin.version>1.11.2</maven.scm-api.plugin.version>
@@ -63,6 +60,10 @@
     <maven.resources.plugin.version>3.2.0</maven.resources.plugin.version>
     <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
     <maven.exec.plugin.version>3.0.0</maven.exec.plugin.version>
+    <!-- Update next three plugins before next release -->
+    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
+    <maven.nexus-staging.plugin.version>1.6.8</maven.nexus-staging.plugin.version>
+    <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
 
     <!-- SWRLAPI and all Maven plugins will work with Java 11. However, the SWRLTab plugin will fail in current
          Protege because it has not yet been updated to Java 11. Update here when it finally does. -->
