@@ -20,12 +20,15 @@
 
     <swrlapi.version>${project.version}</swrlapi.version>
     <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
-    <owlapi.version>4.5.9</owlapi.version>
-    <protege.version>5.5.0</protege.version>
 
-    <axis.osgi.version>1.4_2</axis.osgi.version>
     <jep.version>2.4.2</jep.version>
     <big.math.version>2.3.0</big.math.version>
+
+    <owlapi.version>4.5.9</owlapi.version>
+    <protege.version>5.5.0</protege.version>
+    <axis.osgi.version>1.4_2</axis.osgi.version>
+    <google.guava.version>18.0</google.guava.version>
+    <eclipse.equinox.registry.version>3.5.0.v20100503</eclipse.equinox.registry.version>
 
     <!-- Drools dependencies -->
     <drools.version>7.57.0.Final</drools.version>
@@ -39,6 +42,8 @@
 
     <junit.version>4.13.2</junit.version>
     <slf4j.version>1.7.31</slf4j.version>
+    <org.hamcrest.core.version>1.3</org.hamcrest.core.version>
+    <google.code.findbugs.version>3.0.1</google.code.findbugs.version>
 
     <!-- Maven and Maven plugins -->
     <maven.version>3.6.0</maven.version>
@@ -118,12 +123,6 @@
     <dependencies>
 
       <dependency>
-        <groupId>net.sourceforge.owlapi</groupId>
-        <artifactId>owlapi-osgidistribution</artifactId>
-        <version>${owlapi.version}</version>
-      </dependency>
-
-      <dependency>
         <groupId>org.apache.geronimo.bundles</groupId>
         <artifactId>axis</artifactId>
         <version>${axis.osgi.version}</version>
@@ -141,7 +140,13 @@
         <version>${big.math.version}</version>
       </dependency>
 
-      <!-- Protege dependencies -->
+      <!-- Protege and OWLAPI dependencies -->
+
+      <dependency>
+        <groupId>net.sourceforge.owlapi</groupId>
+        <artifactId>owlapi-osgidistribution</artifactId>
+        <version>${owlapi.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>edu.stanford.protege</groupId>
@@ -159,6 +164,18 @@
         <groupId>edu.stanford.protege</groupId>
         <artifactId>protege-editor-owl</artifactId>
         <version>${protege.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${google.guava.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.eclipse.equinox</groupId>
+        <artifactId>org.eclipse.equinox.registry</artifactId>
+        <version>${eclipse.equinox.registry.version}</version>
       </dependency>
 
       <!-- Drools dependencies -->
@@ -232,6 +249,19 @@
         <artifactId>slf4j-log4j12</artifactId>
         <version>${slf4j.version}</version>
         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-core</artifactId>
+        <version>${org.hamcrest.core.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>${google.code.findbugs.version}</version>
       </dependency>
 
     </dependencies>
