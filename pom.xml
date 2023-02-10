@@ -28,7 +28,7 @@
     <protege.version>5.6.0</protege.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
     <google.guava.version>18.0</google.guava.version>
-    <eclipse.equinox.registry.version>3.5.0.v20100503</eclipse.equinox.registry.version>
+    <eclipse.equinox.registry.version>3.5.101</eclipse.equinox.registry.version>
 
     <!-- Drools dependencies -->
     <drools.version>7.57.0.Final</drools.version>
