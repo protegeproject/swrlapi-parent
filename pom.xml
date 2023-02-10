@@ -32,7 +32,7 @@
 
     <!-- Drools dependencies -->
     <drools.version>7.57.0.Final</drools.version>
-    <mvel2.version>2.4.12.Final</mvel2.version>
+    <mvel2.version>2.4.14.Final</mvel2.version>
     <antlr.runtime.version>3.5.2</antlr.runtime.version>
     <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
     <commons.codec.version>1.15</commons.codec.version>
