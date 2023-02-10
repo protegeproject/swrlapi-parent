@@ -46,9 +46,8 @@
     <google.code.findbugs.version>3.0.1</google.code.findbugs.version>
 
     <!-- Maven and Maven plugins -->
-    <maven.version>3.6.0</maven.version>
-
-    <maven.enforcer.plugin.version>3.0.0-M3</maven.enforcer.plugin.version>
+    <maven.version>3.8.2</maven.version>
+    <maven.enforcer.plugin.version>3.2.1</maven.enforcer.plugin.version>
     <maven.site.plugin.version>3.9.1</maven.site.plugin.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
     <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
@@ -82,14 +81,14 @@
       <name>Martin O'Connor</name>
       <email>martin.oconnor@stanford.edu</email>
       <organization>Stanford Center for Biomedical Informatics Research</organization>
-      <organizationUrl>http://bmir.stanford.edu</organizationUrl>
+      <organizationUrl>https://bmir.stanford.edu</organizationUrl>
     </developer>
   </developers>
 
   <licenses>
     <license>
       <name>BSD 2-Clause License</name>
-      <url>http://opensource.org/licenses/BSD-2-Clause</url>
+      <url>https://opensource.org/licenses/BSD-2-Clause</url>
     </license>
   </licenses>  
 
