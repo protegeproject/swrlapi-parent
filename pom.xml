@@ -65,9 +65,9 @@
     <maven.clean.plugin.version>3.2.0</maven.clean.plugin.version>
     <maven.exec.plugin.version>3.1.0</maven.exec.plugin.version>
     <!-- Update next three plugins before next release -->
-    <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-    <maven.nexus-staging.plugin.version>1.6.8</maven.nexus-staging.plugin.version>
-    <maven.gpg.plugin.version>1.6</maven.gpg.plugin.version>
+    <maven.release.plugin.version>3.0.0-M7</maven.release.plugin.version>
+    <maven.nexus-staging.plugin.version>1.6.13</maven.nexus-staging.plugin.version>
+    <maven.gpg.plugin.version>3.0.1</maven.gpg.plugin.version>
 
     <java.version>11</java.version>
 
