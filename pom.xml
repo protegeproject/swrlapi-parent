@@ -24,8 +24,8 @@
     <jep.version>2.4.2</jep.version>
     <big.math.version>2.3.0</big.math.version>
 
-    <owlapi.version>4.5.24</owlapi.version>
-    <protege.version>5.6.0</protege.version>
+    <owlapi.version>4.5.25</owlapi.version>
+    <protege.version>5.6.2</protege.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
     <google.guava.version>18.0</google.guava.version>
     <eclipse.equinox.registry.version>3.5.101</eclipse.equinox.registry.version>
