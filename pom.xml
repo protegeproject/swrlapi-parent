@@ -10,7 +10,7 @@
 
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrlapi-parent</artifactId>
-  <version>2.1.0</version>
+  <version>2.1.2</version>
   <packaging>pom</packaging>
 
   <name>SWRLAPI Parent POM</name>
@@ -24,8 +24,8 @@
     <jep.version>2.4.2</jep.version>
     <big.math.version>2.3.0</big.math.version>
 
-    <owlapi.version>4.5.24</owlapi.version>
-    <protege.version>5.6.0</protege.version>
+    <owlapi.version>4.5.25</owlapi.version>
+    <protege.version>5.6.2</protege.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
     <google.guava.version>18.0</google.guava.version>
     <eclipse.equinox.registry.version>3.5.101</eclipse.equinox.registry.version>
@@ -57,7 +57,7 @@
     <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
     <maven.javadoc.plugin.version>3.4.1</maven.javadoc.plugin.version>
     <maven.failsafe.plugin.version>3.0.0-M8</maven.failsafe.plugin.version>
-    <maven.deploy.plugin.version>3.1.0</maven.deploy.plugin.version>
+    <maven.deploy.plugin.version>3.1.1</maven.deploy.plugin.version>
     <maven.versions.plugin.version>2.8.1</maven.versions.plugin.version>
     <maven.resources.plugin.version>3.3.0</maven.resources.plugin.version>
     <maven.clean.plugin.version>3.2.0</maven.clean.plugin.version>
@@ -107,7 +107,7 @@
     <connection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</developerConnection>
     <url>https://github.com/protegeproject/swrlapi-parent</url>
-    <tag>release-2.1.0</tag>
+    <tag>release-2.1.2</tag>
   </scm>
 
   <issueManagement>
