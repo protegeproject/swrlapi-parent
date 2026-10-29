@@ -2,24 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
-
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrlapi-parent</artifactId>
-  <version>2.1.4-SNAPSHOT</version>
+  <version>2.1.4</version>
   <packaging>pom</packaging>
 
   <name>SWRLAPI Parent POM</name>
   <description>Parent POM for SWRLAPI Project</description>
+  <url>https://github.com/protegeproject/swrlapi-parent</url>
 
   <properties>
 
-    <swrlapi.version>${project.version}</swrlapi.version>
-    <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
+    <swrlapi.version>2.1.4</swrlapi.version>
+    <swrlapi.drools.version>2.1.4</swrlapi.drools.version>
 
     <jep.version>2.4.2</jep.version>
     <big.math.version>2.3.2</big.math.version>
@@ -66,8 +61,8 @@
     <maven.scm-api.plugin.version>2.1.0</maven.scm-api.plugin.version>
     <maven.scm-provider-gitexe.plugin.version>2.1.0</maven.scm-provider-gitexe.plugin.version>
     <maven.release.plugin.version>3.0.0-M7</maven.release.plugin.version>
-    <maven.nexus-staging.plugin.version>1.6.13</maven.nexus-staging.plugin.version>
-    <maven.gpg.plugin.version>3.0.1</maven.gpg.plugin.version>
+    <maven.central-publishing.plugin.version>0.12.0</maven.central-publishing.plugin.version>
+    <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
 
     <java.version>11</java.version>
 
@@ -92,23 +87,19 @@
     </license>
   </licenses>  
 
-  <!-- SWRLAPI libraries are hosted on Sonatype OSSRH (OSS Repository Hosting Service). -->
+  <!-- Snapshot publishing is separate from Central Portal release bundles. -->
   <distributionManagement>
     <snapshotRepository>
-      <id>central-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>central</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
     </snapshotRepository>
-    <repository>
-      <id>central-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
   </distributionManagement>
 
   <scm>
     <connection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</developerConnection>
     <url>https://github.com/protegeproject/swrlapi-parent</url>
-    <tag>release-2.1.2</tag>
+    <tag>release-2.1.4</tag>
   </scm>
 
   <issueManagement>
@@ -343,6 +334,10 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${maven.release.plugin.version}</version>
+          <configuration>
+            <useReleaseProfile>false</useReleaseProfile>
+            <releaseProfiles>maven-central-release</releaseProfiles>
+          </configuration>
           <dependencies>
             <dependency>
               <groupId>org.apache.maven.scm</groupId>
@@ -423,18 +418,6 @@
         <activeByDefault>false</activeByDefault>
       </activation>
 
-      <distributionManagement>
-
-        <snapshotRepository>
-          <id>central-nexus-snapshots</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-          <id>central-nexus-releases</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-
-      </distributionManagement>
 
       <build>
         <plugins>
@@ -486,15 +469,14 @@
           </plugin>
 
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>${maven.nexus-staging.plugin.version}</version>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${maven.central-publishing.plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>central-nexus-releases</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <description>${project.version}</description>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <publishingServerId>central</publishingServerId>
+              <autoPublish>false</autoPublish>
+              <waitUntil>validated</waitUntil>
             </configuration>
           </plugin>
 
