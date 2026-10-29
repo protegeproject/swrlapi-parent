@@ -24,7 +24,7 @@
     <jep.version>2.4.2</jep.version>
     <big.math.version>2.3.2</big.math.version>
 
-    <owlapi.version>4.5.27</owlapi.version>
+    <owlapi.version>4.5.29</owlapi.version>
     <protege.version>5.6.4</protege.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
     <!-- Updating Guava from this version breaks the SWRLTab Plugin due to OSGi errors -->
@@ -42,7 +42,7 @@
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
     
     <junit.version>4.13.2</junit.version>
-    <slf4j.version>2.0.16</slf4j.version>
+    <slf4j.version>1.7.36</slf4j.version>
     <org.hamcrest.core.version>3.0</org.hamcrest.core.version>
     <google.code.findbugs.version>3.0.2</google.code.findbugs.version>
 
