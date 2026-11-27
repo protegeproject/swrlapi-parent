@@ -2,24 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
-
   <groupId>edu.stanford.swrl</groupId>
   <artifactId>swrlapi-parent</artifactId>
-  <version>2.1.4-SNAPSHOT</version>
+  <version>2.1.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>SWRLAPI Parent POM</name>
   <description>Parent POM for SWRLAPI Project</description>
+  <url>https://github.com/protegeproject/swrlapi-parent</url>
 
   <properties>
 
-    <swrlapi.version>${project.version}</swrlapi.version>
-    <swrlapi.drools.version>${project.version}</swrlapi.drools.version>
+    <swrlapi.version>2.1.5-SNAPSHOT</swrlapi.version>
+    <swrlapi.drools.version>2.1.5-SNAPSHOT</swrlapi.drools.version>
 
     <jep.version>2.4.2</jep.version>
     <big.math.version>2.3.2</big.math.version>
@@ -27,8 +22,10 @@
     <owlapi.version>5.5.1</owlapi.version>
     <protege.version>5.6.4</protege.version>
     <axis.osgi.version>1.4_2</axis.osgi.version>
-    <!-- Match OWLAPI 5.5.1; SWRLTab / Protege integration is a separate migration. -->
-    <google.guava.version>33.0.0-jre</google.guava.version>
+    <!-- Security fixes are managed here for OWLAPI and Drools consumers. -->
+    <google.guava.version>33.8.0-jre</google.guava.version>
+    <jackson.bom.version>2.21.9</jackson.bom.version>
+    <xstream.version>1.4.21</xstream.version>
     <eclipse.equinox.registry.version>3.5.101</eclipse.equinox.registry.version>
 
     <!-- Drools dependencies -->
@@ -67,8 +64,8 @@
     <maven.scm-api.plugin.version>2.1.0</maven.scm-api.plugin.version>
     <maven.scm-provider-gitexe.plugin.version>2.1.0</maven.scm-provider-gitexe.plugin.version>
     <maven.release.plugin.version>3.0.0-M7</maven.release.plugin.version>
-    <maven.nexus-staging.plugin.version>1.6.13</maven.nexus-staging.plugin.version>
-    <maven.gpg.plugin.version>3.0.1</maven.gpg.plugin.version>
+    <maven.central-publishing.plugin.version>0.12.0</maven.central-publishing.plugin.version>
+    <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
 
     <java.version>11</java.version>
 
@@ -93,23 +90,19 @@
     </license>
   </licenses>  
 
-  <!-- SWRLAPI libraries are hosted on Sonatype OSSRH (OSS Repository Hosting Service). -->
+  <!-- Snapshot publishing is separate from Central Portal release bundles. -->
   <distributionManagement>
     <snapshotRepository>
-      <id>central-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>central</id>
+      <url>https://central.sonatype.com/repository/maven-snapshots/</url>
     </snapshotRepository>
-    <repository>
-      <id>central-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
   </distributionManagement>
 
   <scm>
     <connection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</connection>
     <developerConnection>scm:git:git@github.com:protegeproject/swrlapi-parent.git</developerConnection>
     <url>https://github.com/protegeproject/swrlapi-parent</url>
-    <tag>release-2.1.2</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <issueManagement>
@@ -119,6 +112,20 @@
 
   <dependencyManagement>
     <dependencies>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson</groupId>
+        <artifactId>jackson-bom</artifactId>
+        <version>${jackson.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.thoughtworks.xstream</groupId>
+        <artifactId>xstream</artifactId>
+        <version>${xstream.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>org.apache.geronimo.bundles</groupId>
@@ -271,6 +278,31 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>ban-vulnerable-dependencies</id>
+            <goals><goal>enforce</goal></goals>
+            <configuration>
+              <rules>
+                <bannedDependencies>
+                  <excludes>
+                    <exclude>com.google.guava:guava:(,33.8.0-jre)</exclude>
+                    <exclude>com.fasterxml.jackson.core:jackson-core:(,2.21.9)</exclude>
+                    <exclude>com.fasterxml.jackson.core:jackson-databind:(,2.21.9)</exclude>
+                    <exclude>com.thoughtworks.xstream:xstream:(,1.4.21)</exclude>
+                  </excludes>
+                  <searchTransitive>true</searchTransitive>
+                  <message>Use the security-patched dependency baseline managed by swrlapi-parent.</message>
+                </bannedDependencies>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>${maven.site.plugin.version}</version>
         <executions>
@@ -344,6 +376,10 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${maven.release.plugin.version}</version>
+          <configuration>
+            <useReleaseProfile>false</useReleaseProfile>
+            <releaseProfiles>maven-central-release</releaseProfiles>
+          </configuration>
           <dependencies>
             <dependency>
               <groupId>org.apache.maven.scm</groupId>
@@ -466,18 +502,6 @@
         <activeByDefault>false</activeByDefault>
       </activation>
 
-      <distributionManagement>
-
-        <snapshotRepository>
-          <id>central-nexus-snapshots</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-          <id>central-nexus-releases</id>
-          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-
-      </distributionManagement>
 
       <build>
         <plugins>
@@ -529,15 +553,14 @@
           </plugin>
 
           <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>${maven.nexus-staging.plugin.version}</version>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>${maven.central-publishing.plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-              <serverId>central-nexus-releases</serverId>
-              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-              <description>${project.version}</description>
-              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <publishingServerId>central</publishingServerId>
+              <autoPublish>false</autoPublish>
+              <waitUntil>validated</waitUntil>
             </configuration>
           </plugin>
 
