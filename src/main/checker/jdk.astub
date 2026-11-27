@@ -1,0 +1,24 @@
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+// Null fields denote unspecified duration components (DatatypeFactory Javadoc).
+package javax.xml.datatype;
+abstract class DatatypeFactory {
+  abstract Duration newDuration(boolean positive, @Nullable java.math.BigInteger years,
+    @Nullable java.math.BigInteger months, @Nullable java.math.BigInteger days,
+    @Nullable java.math.BigInteger hours, @Nullable java.math.BigInteger minutes,
+    @Nullable java.math.BigDecimal seconds);
+}
+
+// A null parameter spec requests the algorithm's default parameters.
+package javax.xml.crypto.dsig;
+abstract class TransformService {
+  abstract void init(@Nullable javax.xml.crypto.dsig.spec.TransformParameterSpec params)
+    throws java.security.InvalidAlgorithmParameterException;
+}
+
+// Swing permits tabs with no icon or tooltip, and permits a null title/component.
+package javax.swing;
+class JTabbedPane {
+  void addTab(@Nullable String title, @Nullable Icon icon,
+    @Nullable java.awt.Component component, @Nullable String tip);
+}

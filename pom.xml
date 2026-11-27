@@ -35,8 +35,8 @@
     <commons.discovery.osgi.version>0.4_1</commons.discovery.osgi.version>
     <commons.codec.version>1.18.0</commons.codec.version>
       
-    <checker.framework.version>1.9.13</checker.framework.version>
-    <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
+    <checker.qual.version>${checker.framework.version}</checker.qual.version>
+    <checker.framework.version>4.4.0</checker.framework.version>
     
     <junit.version>4.13.2</junit.version>
     <slf4j.version>2.0.16</slf4j.version>
@@ -209,24 +209,12 @@
         <version>${commons.discovery.osgi.version}</version>
       </dependency>
 
-      <!-- Checker dependencies -->
-      
-      <dependency>
-        <groupId>org.checkerframework</groupId>
-        <artifactId>checker</artifactId>
-        <version>${checker.framework.version}</version>
-      </dependency>
+      <!-- Checker annotations; the processor is isolated in the nullness profile. -->
 
       <dependency>
         <groupId>org.checkerframework</groupId>
         <artifactId>checker-qual</artifactId>
-        <version>${checker.framework.version}</version>
-      </dependency>
-      
-      <dependency>
-        <groupId>org.checkerframework</groupId>
-        <artifactId>jdk8</artifactId>
-        <version>${checker.framework.version}</version>
+        <version>${checker.qual.version}</version>
       </dependency>
 
       <!-- Test dependencies -->
@@ -347,15 +335,6 @@
           <configuration>
             <source>${java.version}</source>
             <target>${java.version}</target>
-            <!-- Temporarily disabling Checker Framework. A small number Checker-identified issues remain.
-                 <fork>true</fork>
-                 <annotationProcessors>
-                 <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
-                 </annotationProcessors>
-                 <compilerArgs>
-                 <arg>-Xbootclasspath/p:${annotatedJdk}</arg>
-                 </compilerArgs>
-            -->
           </configuration>
         </plugin>
 
@@ -472,6 +451,77 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>nullness</id>
+      <properties>
+        <checker.diagnostic.option>-AshowSuppressWarningsStrings</checker.diagnostic.option>
+        <checker.stubs>${project.basedir}/../swrlapi-parent/src/main/checker/jdk.astub</checker.stubs>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>nullness-build-jdk</id>
+                <goals><goal>enforce</goal></goals>
+                <configuration>
+                  <rules><requireJavaVersion><version>[17,)</version></requireJavaVersion></rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.14.1</version>
+            <executions>
+              <execution>
+                <id>default-compile</id>
+                <configuration>
+                  <fork>true</fork>
+                  <showWarnings>true</showWarnings>
+                  <annotationProcessorPaths>
+                    <path>
+                      <groupId>org.checkerframework</groupId>
+                      <artifactId>checker</artifactId>
+                      <version>${checker.framework.version}</version>
+                    </path>
+                  </annotationProcessorPaths>
+                  <annotationProcessors>
+                    <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+                  </annotationProcessors>
+                  <compilerArgs>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+                    <arg>-Xmaxerrs</arg><arg>10000</arg>
+                    <arg>-Xmaxwarns</arg><arg>10000</arg>
+                    <arg>${checker.diagnostic.option}</arg>
+                    <arg>-Astubs=${checker.stubs}</arg>
+                  </compilerArgs>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>nullness-audit</id>
+      <properties>
+        <!-- Use with nullness to inventory findings without stopping at the first module. -->
+        <checker.diagnostic.option>-Awarns</checker.diagnostic.option>
+      </properties>
+    </profile>
     <profile>
       <id>static-analysis</id>
       <build>

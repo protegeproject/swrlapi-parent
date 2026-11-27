@@ -11,7 +11,7 @@ Clone the sibling repositories on `protege-6` using the build guide below. From
 the workspace root, run:
 
 ```sh
-mvn -B -f swrlapi-project/pom.xml -Pcore,static-analysis clean verify
+mvn -B -f swrlapi-project/pom.xml -Pcore,nullness,static-analysis clean verify
 ```
 
 The reactor builds this parent before its consumers and uses their current source.
